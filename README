@@ -1,0 +1,88 @@
+# AltitudeBank
+
+AltitudeBank is a custom Minecraft banking plugin developed for the Altitude SMP server.  
+The plugin provides an in-game banking system with secure balance management, deposit and withdrawal utilities, and economy-related gameplay features.
+
+---
+
+## Features
+
+- Player balance management
+- Deposit system
+- Withdrawal system
+- Half-balance quick transactions
+- Custom amount transactions
+- Full balance deposit/withdraw support
+- Command auto-completion
+- User-friendly command handling
+- Modular project structure
+
+---
+
+## Commands
+
+| Command | Description |
+|---|---|
+| `/bank` | Opens help menu |
+| `/bank balance` | Shows current bank balance |
+| `/bank deposit <amount/all>` | Deposits money into bank |
+| `/bank deposithalf` | Deposits half of wallet balance |
+| `/bank depositcustom` | Deposits custom amount |
+| `/bank withdraw <amount/all>` | Withdraws money from bank |
+| `/bank withdrawhalf` | Withdraws half of bank balance |
+| `/bank withdrawcustom` | Withdraws custom amount |
+
+---
+
+## Tech Stack
+
+- Java
+- Maven
+- Spigot/Paper API
+- Minecraft Plugin Development
+
+---
+
+## Project Structure
+
+```txt
+src/main/java/com/altitudebank
+├── command
+├── listener
+├── manager
+├── model
+├── placeholder
+├── task
+└── util
+```
+
+---
+
+## Installation
+
+1. Build the plugin using Maven
+2. Place the generated `.jar` file inside your server's `plugins` folder
+3. Restart the server
+
+---
+
+## Development
+
+This project was developed as part of the Altitude SMP ecosystem to improve gameplay experience and server-side economy management.
+
+---
+
+## Future Improvements
+
+- Interest system
+- Transaction history
+- SQLite/MySQL support
+- GUI banking menus
+- Leaderboards
+- Multi-account support
+
+---
+
+## Author
+
+Developed by Prabal Jaiswal
