@@ -1,0 +1,36 @@
+name: AltitudeBank
+version: '1.0.0'
+main: com.altitudebank.AltitudeBankPlugin
+api-version: '1.21'
+description: Personal bank system with Hypixel Skyblock-inspired features
+authors: [ AltitudeBank ]
+website: https://github.com/altitudebank
+
+softdepend:
+  - Vault
+  - EssentialsX
+  - PlaceholderAPI
+
+commands:
+  bank:
+    description: Main bank command
+    usage: /bank [balance|deposit|withdraw|deposithalf|depositcustom|withdrawcustom]
+    aliases: [ b ]
+    permission: altitudebank.use
+
+permissions:
+  altitudebank.use:
+    description: Allows use of the /bank command
+    default: true
+  altitudebank.bypass.deathloss:
+    description: Bypass wallet death money loss
+    default: false
+  altitudebank.bypass.withdrawtax:
+    description: Bypass bank withdrawal tax
+    default: false
+  altitudebank.bypass.wealthtax:
+    description: Bypass periodic wealth tax
+    default: false
+  altitudebank.admin:
+    description: Access to admin functions
+    default: op

@@ -1,0 +1,157 @@
+# ============================================================
+#  AltitudeBank Configuration
+#  Personal bank system for Paper 1.21.1+
+# ============================================================
+
+# ─── Economy Settings ────────────────────────────────────────
+economy:
+  # Starting bank balance for new players
+  starting-balance: 0.0
+  # Currency symbol shown in messages (overridden by Vault if available)
+  currency-symbol: "$"
+  # Number of decimal places to display
+  decimal-places: 2
+  # Minimum deposit amount
+  min-deposit: 1.0
+  # Minimum withdrawal amount
+  min-withdraw: 1.0
+  # Maximum single deposit (0 = unlimited)
+  max-single-deposit: 0.0
+  # Maximum single withdrawal (0 = unlimited)
+  max-single-withdraw: 0.0
+  # Maximum total bank balance (0 = unlimited)
+  max-balance: 0.0
+
+# ─── Bank Withdrawal Tax ─────────────────────────────────────
+withdrawal-tax:
+  enabled: true
+  # Percentage taken on every withdrawal (0.0 - 100.0)
+  tax-percent: 5.0
+  # Minimum withdrawal amount before tax applies
+  min-taxable-amount: 100.0
+
+# ─── Death Money Loss ────────────────────────────────────────
+death-loss:
+  enabled: true
+  # Percentage of WALLET (not bank) lost on death
+  loss-percent: 20.0
+  # Minimum wallet balance before loss applies
+  min-wallet-balance: 500.0
+  # Minimum amount lost (0 = no minimum)
+  min-loss: 0.0
+  # Maximum amount lost (0 = no maximum cap)
+  max-loss: 0.0
+  # Worlds where death loss is active (empty list = all worlds)
+  enabled-worlds:
+    - world
+    - world_nether
+    - world_the_end
+  # Play sound to the player on death loss
+  play-sound: true
+  sound: ENTITY_WITHER_HURT
+
+# ─── Wealth Tax (Periodic) ──────────────────────────────────
+wealth-tax:
+  enabled: true
+  # How often the tax runs, in DAYS (supports decimals, e.g. 0.5 = 12 hours)
+  interval-days: 3.0
+  # Percentage of bank balance taken each cycle
+  tax-percent: 2.0
+  # Minimum bank balance before wealth tax applies
+  min-balance: 10000.0
+  # Notify player on join if they were taxed while offline
+  notify-on-join: true
+  # Play sound when taxed (online players only)
+  play-sound: true
+  sound: BLOCK_NOTE_BLOCK_BASS
+
+# ─── Auto-Save ───────────────────────────────────────────────
+autosave:
+  # Interval in seconds to auto-save bank data
+  interval-seconds: 300
+
+# ─── PlaceholderAPI ──────────────────────────────────────────
+placeholderapi:
+  enabled: true
+
+# ─── Messages ────────────────────────────────────────────────
+# Supports & color codes and {placeholders}
+messages:
+  prefix: "&8[&6AltitudeBank&8] &r"
+
+  # Help
+  help-header: "&6&l━━━ AltitudeBank Help ━━━"
+  help-balance: "&e/bank balance &7- View your bank balance"
+  help-deposit: "&e/bank deposit <amount|all> &7- Deposit money"
+  help-deposithalf: "&e/bank deposithalf &7- Deposit half your wallet"
+  help-depositcustom: "&e/bank depositcustom &7- Type a custom deposit amount"
+  help-withdraw: "&e/bank withdraw <amount|all> &7- Withdraw money"
+  help-withdrawcustom: "&e/bank withdrawcustom &7- Type a custom withdrawal amount"
+  help-footer: "&6&l━━━━━━━━━━━━━━━━━━━━━"
+
+  # Balance
+  balance-display: "&aYour bank balance: &6{balance}"
+  wallet-display: "&aYour wallet balance: &6{wallet}"
+
+  # Deposits
+  deposit-success: "&aDeposited &6{amount} &ainto your bank. New balance: &6{balance}"
+  deposit-all-nothing: "&cYou have no money in your wallet to deposit!"
+  deposit-min-error: "&cYou must deposit at least &6{min}&c."
+  deposit-max-error: "&cYou cannot deposit more than &6{max} &cat once."
+  deposit-max-balance-error: "&cDepositing would exceed your maximum bank balance of &6{max}&c."
+  deposit-not-enough: "&cYou don't have &6{amount} &cin your wallet."
+  deposit-invalid-amount: "&cInvalid amount. Please enter a positive number."
+
+  # Withdrawals
+  withdraw-success: "&aWithdrew &6{amount} &afrom your bank. Bank balance: &6{balance}"
+  withdraw-all-nothing: "&cYour bank is empty!"
+  withdraw-insufficient: "&cYou don't have &6{amount} &cin your bank."
+  withdraw-min-error: "&cYou must withdraw at least &6{min}&c."
+  withdraw-max-error: "&cYou cannot withdraw more than &6{max} &cat once."
+  withdraw-invalid-amount: "&cInvalid amount. Please enter a positive number."
+  withdraw-tax-notice: "&7(Withdrawal tax of &c{tax_percent}% &7applied. You received &6{net} &7after &c{tax_amount} &7tax.)"
+
+  # Custom input mode
+  custom-input-prompt-deposit: "&eType the amount you want to &adeposit&e, or type &ccancel&e to abort:"
+  custom-input-prompt-withdraw: "&eType the amount you want to &cwithdraw&e, or type &ccancel&e to abort:"
+  custom-input-cancel: "&cTransaction cancelled."
+  custom-input-already-active: "&cYou already have an active input session. Type an amount or &ecancel&c."
+  custom-input-expired: "&cYour input session expired."
+
+  # Death loss
+  death-loss-message: "&cYou lost &6{amount} &cfrom your wallet on death. ({percent}%)"
+  death-loss-bypass: "&7(Death loss bypassed)"
+
+  # Wealth tax (online notification)
+  wealth-tax-applied: "&cWealth tax of &6{percent}% &ctaken. You lost &6{amount}&c from your bank."
+  # Join notification (offline tax)
+  wealth-tax-join-notify: "&cWhile you were offline, a &6{percent}% &cwealth tax was applied. You lost &6{amount}&c from your bank."
+
+  # Errors
+  no-permission: "&cYou don't have permission to do that."
+  player-only: "&cThis command can only be used by players."
+  vault-not-found: "&cEconomy plugin not found. Please install Vault + EssentialsX."
+  unknown-subcommand: "&cUnknown subcommand. Use &e/bank &cfor help."
+
+# ─── Sounds ──────────────────────────────────────────────────
+sounds:
+  deposit-success:
+    enabled: true
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    volume: 1.0
+    pitch: 1.2
+  withdraw-success:
+    enabled: true
+    sound: ENTITY_VILLAGER_YES
+    volume: 1.0
+    pitch: 1.0
+  error:
+    enabled: true
+    sound: ENTITY_VILLAGER_NO
+    volume: 1.0
+    pitch: 1.0
+  custom-input-prompt:
+    enabled: true
+    sound: BLOCK_NOTE_BLOCK_PLING
+    volume: 1.0
+    pitch: 1.5
